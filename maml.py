@@ -172,7 +172,7 @@ class MAML:
         accuracies = []
         parameters = {k: torch.clone(v) for k, v in self._meta_parameters.items()}
         ### START CODE HERE ###
-        for _ in range(self._num_inner_steps + 1):
+        for _ in range(self._num_inner_steps):
             f_theta = self._forward(images, parameters)
 
             accuracies.append((f_theta.argmax(dim=1) == labels).float().mean().item())
